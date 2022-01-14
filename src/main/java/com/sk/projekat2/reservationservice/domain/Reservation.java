@@ -13,6 +13,7 @@ public class Reservation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private Long userId;
 	private Long roomTypeId;
 	private Long periodId;
 	private BigDecimal price;

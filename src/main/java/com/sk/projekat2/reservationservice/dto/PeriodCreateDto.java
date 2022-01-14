@@ -1,30 +1,33 @@
-package com.sk.projekat2.reservationservice.domain;
+package com.sk.projekat2.reservationservice.dto;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Period {
+public class PeriodCreateDto {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	private Date checkIn;
 	private Date checkOut;
 	
+	public PeriodCreateDto() {
+		
+	}
+	
+	public PeriodCreateDto(Date checkIn, Date checkOut) {
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+	}
+
 	public Date getCheckIn() {
 		return checkIn;
 	}
+
 	public void setCheckIn(Date checkIn) {
 		this.checkIn = checkIn;
 	}
+
 	public Date getCheckOut() {
 		return checkOut;
 	}
+
 	public void setCheckOut(Date checkOut) {
 		this.checkOut = checkOut;
 	}
