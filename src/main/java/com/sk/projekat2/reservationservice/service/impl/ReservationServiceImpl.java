@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.sk.projekat2.reservationservice.dto.ReservationCreateDto;
 import com.sk.projekat2.reservationservice.mapper.ReservationMapper;
@@ -17,10 +18,12 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	private ReservationRepository reservationRepository;
 	private ReservationMapper reservationMapper;
+	private RestTemplate userServiceRestTemplate;
 	
-	public ReservationServiceImpl(ReservationRepository reservationRepository, ReservationMapper reservationMapper) {
+	public ReservationServiceImpl(ReservationRepository reservationRepository, ReservationMapper reservationMapper, RestTemplate userServiceRestTemplate) {
 		this.reservationRepository = reservationRepository;
 		this.reservationMapper = reservationMapper;
+		this.userServiceRestTemplate = userServiceRestTemplate;
 	}
 
 	@Override
