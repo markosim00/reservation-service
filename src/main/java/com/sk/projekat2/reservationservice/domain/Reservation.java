@@ -15,8 +15,19 @@ public class Reservation {
 	private Long id;
 	private Long userId;
 	private Long roomTypeId;
-	private Long periodId;
+	private Long terminId;
 	private BigDecimal price;
+	
+	public Reservation() {
+		
+	}
+	
+	public Reservation(Long userId, Long roomTypeId, Long terminId, BigDecimal price) {
+		this.userId = userId;
+		this.roomTypeId = roomTypeId;
+		this.terminId = terminId;
+		this.price = price;
+	}
 	
 	public Long getId() {
 		return id;
@@ -30,12 +41,15 @@ public class Reservation {
 	public void setRoomTypeId(Long roomTypeId) {
 		this.roomTypeId = roomTypeId;
 	}
-	public Long getPeriodId() {
-		return periodId;
+	
+	public Long getTerminId() {
+		return terminId;
 	}
-	public void setPeriodId(Long periodId) {
-		this.periodId = periodId;
+
+	public void setTerminId(Long terminId) {
+		this.terminId = terminId;
 	}
+
 	public BigDecimal getPrice() {
 		return price;
 	}

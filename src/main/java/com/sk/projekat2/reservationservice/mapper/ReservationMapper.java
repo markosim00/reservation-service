@@ -12,7 +12,7 @@ public class ReservationMapper {
 		ReservationCreateDto reservationCreateDto = new ReservationCreateDto();
 		reservationCreateDto.setUserId(reservation.getUserId());
 		reservationCreateDto.setRoomTypeId(reservation.getRoomTypeId());
-		reservationCreateDto.setPeriodId(reservation.getPeriodId());
+		reservationCreateDto.setTerminId(reservation.getTerminId());
 		
 		return reservationCreateDto;
 	}

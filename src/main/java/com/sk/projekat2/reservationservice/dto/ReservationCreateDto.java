@@ -1,19 +1,23 @@
 package com.sk.projekat2.reservationservice.dto;
 
+import java.math.BigDecimal;
+
 public class ReservationCreateDto {
 	
 	private Long userId;
 	private Long roomTypeId;
-	private Long periodId;
+	private Long terminId;
+	private BigDecimal price;
 	
 	public ReservationCreateDto() {
 		
 	}
 
-	public ReservationCreateDto(Long userId, Long roomTypeId, Long periodId) {
+	public ReservationCreateDto(Long userId, Long roomTypeId, Long terminId, BigDecimal price) {
 		this.userId = userId;
 		this.roomTypeId = roomTypeId;
-		this.periodId = periodId;
+		this.terminId = terminId;
+		this.price = price;
 	}
 
 	public Long getUserId() {
@@ -32,12 +36,20 @@ public class ReservationCreateDto {
 		this.roomTypeId = roomTypeId;
 	}
 
-	public Long getPeriodId() {
-		return periodId;
+	public Long getTerminId() {
+		return terminId;
 	}
 
-	public void setPeriodId(Long periodId) {
-		this.periodId = periodId;
+	public void setTerminId(Long terminId) {
+		this.terminId = terminId;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 	
 	
