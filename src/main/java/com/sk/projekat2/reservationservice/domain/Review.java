@@ -19,6 +19,22 @@ public class Review {
 	@ManyToOne(optional = true)
 	private City city;
 	
+	public Review() {
+		
+	}
+	
+	public Review(int mark, String comment, Hotel hotel) {
+		this.mark = mark;
+		this.comment = comment;
+		this.hotel = hotel;
+	}
+	
+	public Review(int mark, String comment, City city) {
+		this.mark = mark;
+		this.comment = comment;
+		this.city = city;
+	}
+	
 	public int getMark() {
 		return mark;
 	}

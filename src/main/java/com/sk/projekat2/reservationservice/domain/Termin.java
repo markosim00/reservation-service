@@ -16,6 +16,7 @@ public class Termin {
 	private Long cityId;
 	private Long hotelId;
 	private Long periodId;
+	private int numOfRooms;
 	
 	public Long getId() {
 		return id;
@@ -41,6 +42,12 @@ public class Termin {
 	}
 	public void setPeriodId(Long periodId) {
 		this.periodId = periodId;
+	}
+	public int getNumOfRooms() {
+		return numOfRooms;
+	}
+	public void setNumOfRooms(int numOfRooms) {
+		this.numOfRooms = numOfRooms;
 	}
 	
 	
