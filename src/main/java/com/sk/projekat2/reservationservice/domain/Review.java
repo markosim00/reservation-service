@@ -31,6 +31,26 @@ public class Review {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Hotel getHotel() {
+		return hotel;
+	}
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
+	public City getCity() {
+		return city;
+	}
+	public void setCity(City city) {
+		this.city = city;
+	}
+	
+	
 	
 	
 

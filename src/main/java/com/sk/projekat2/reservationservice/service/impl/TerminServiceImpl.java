@@ -7,16 +7,26 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.sk.projekat2.reservationservice.dto.TerminCreateDto;
+import com.sk.projekat2.reservationservice.mapper.TerminMapper;
+import com.sk.projekat2.reservationservice.repository.TerminRepository;
 import com.sk.projekat2.reservationservice.service.TerminService;
 
 @Service
 @Transactional
 public class TerminServiceImpl implements TerminService{
+	
+	private TerminRepository terminRepository;
+	private TerminMapper terminMapper;
+	
+	public TerminServiceImpl(TerminRepository terminRepository, TerminMapper terminMapper) {
+		this.terminRepository = terminRepository;
+		this.terminMapper = terminMapper;
+	}
 
 	@Override
 	public Page<TerminCreateDto> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+		return terminRepository.findAll(pageable)
+				.map(terminMapper::terminToTerminCreateDto);
 	}
 
 	@Override

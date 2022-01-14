@@ -36,6 +36,12 @@ public class Termin {
 	public void setHotelId(Long hotelId) {
 		this.hotelId = hotelId;
 	}
+	public Long getPeriodId() {
+		return periodId;
+	}
+	public void setPeriodId(Long periodId) {
+		this.periodId = periodId;
+	}
 	
 	
 	
