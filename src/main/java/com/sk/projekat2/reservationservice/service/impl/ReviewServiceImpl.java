@@ -1,8 +1,12 @@
 package com.sk.projekat2.reservationservice.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -32,19 +36,38 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public Page<ReviewCreateDto> findAllReviewsByHotelId(Pageable pageable, Long hotelId) {
-		return null;
+		List<ReviewCreateDto> allReviews = findAll(pageable).getContent();
+		List<ReviewCreateDto> reviewsByHotel = new ArrayList<ReviewCreateDto>();
+		for(ReviewCreateDto reviewCreateDto : allReviews) {
+			if(reviewCreateDto.getHotel().getId() == hotelId)
+				reviewsByHotel.add(reviewCreateDto);
+		}
+		Page<ReviewCreateDto> allReviewsByHotelId = new PageImpl<>(reviewsByHotel);
+		return allReviewsByHotelId;
 	}
 
 	@Override
 	public Page<ReviewCreateDto> findAllReviewsByCityId(Pageable pageable, Long cityId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<ReviewCreateDto> allReviews = findAll(pageable).getContent();
+		List<ReviewCreateDto> reviewsByCity = new ArrayList<ReviewCreateDto>();
+		for(ReviewCreateDto reviewCreateDto : allReviews) {
+			if(reviewCreateDto.getCity().getId() == cityId)
+				reviewsByCity.add(reviewCreateDto);
+		}
+		Page<ReviewCreateDto> allReviewsByCityId = new PageImpl<>(reviewsByCity);
+		return allReviewsByCityId;
 	}
 
 	@Override
 	public Page<ReviewCreateDto> findAllReviewsByCityIdAndHotelId(Pageable pageable, Long cityId, Long hotelId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<ReviewCreateDto> allReviews = findAll(pageable).getContent();
+		List<ReviewCreateDto> reviewsByCityAndHotel = new ArrayList<ReviewCreateDto>();
+		for(ReviewCreateDto reviewCreateDto : allReviews) {
+			if(reviewCreateDto.getCity().getId() == cityId && reviewCreateDto.getHotel().getId() == hotelId)
+				reviewsByCityAndHotel.add(reviewCreateDto);
+		}
+		Page<ReviewCreateDto> allReviewsByCityIdAndHotelId = new PageImpl<>(reviewsByCityAndHotel);
+		return allReviewsByCityIdAndHotelId;
 	}
 
 	@Override

@@ -9,16 +9,16 @@ public interface TerminService {
 	
 	Page<TerminCreateDto> findAll(Pageable pageable);
 	
-	Page<TerminCreateDto> findAllTerminsByHotelId(Long hotelId);
+	Page<TerminCreateDto> findAllTerminsByHotelId(Pageable pageable, Long hotelId);
 	
-	Page<TerminCreateDto> findAllTerminsByCityId(Long cityId);
+	Page<TerminCreateDto> findAllTerminsByCityId(Pageable pageable, Long cityId);
 	
-	Page<TerminCreateDto> findAllTerminsByPeriodId(Long periodId);
+	Page<TerminCreateDto> findAllTerminsByPeriodId(Pageable pageable, Long periodId);
 	
-	Page<TerminCreateDto> findAllTerminsByCityIdAndHotelId(Long cityId, Long hotelId);
+	Page<TerminCreateDto> findAllTerminsByCityIdAndHotelId(Pageable pageable, Long cityId, Long hotelId);
 	
-	Page<TerminCreateDto> findAllTerminsByCityIdAndPeriodId(Long cityId, Long periodId);
+	Page<TerminCreateDto> findAllTerminsByCityIdAndPeriodId(Pageable pageable, Long cityId, Long periodId);
 	
-	Page<TerminCreateDto> findAllTerminsByHotelIdAndPeriodId(Long hotelId, Long periodId);
+	Page<TerminCreateDto> findAllTerminsByHotelIdAndPeriodId(Pageable pageable, Long hotelId, Long periodId);
 
 }

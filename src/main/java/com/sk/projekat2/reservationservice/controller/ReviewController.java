@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sk.projekat2.reservationservice.domain.Review;
@@ -32,12 +34,29 @@ public class ReviewController {
 		return new ResponseEntity<>(reviewService.findAll(pageable), HttpStatus.OK);
 	}
 	
+	@GetMapping("/hotel/{id}")
+	public ResponseEntity<Page<ReviewCreateDto>> getAllReviewsByHotelId(Pageable pageable,@PathVariable("id") Long hotelId){
+		return new ResponseEntity<>(reviewService.findAllReviewsByHotelId(pageable, hotelId), HttpStatus.OK);
+	}
+	
+	@GetMapping("/city/{id}")
+	public ResponseEntity<Page<ReviewCreateDto>> getAllReviewsByCityId(Pageable pageable,@PathVariable("id") Long cityId){
+		return new ResponseEntity<>(reviewService.findAllReviewsByCityId(pageable, cityId), HttpStatus.OK);
+	}
+	
+	@GetMapping("/")
+	public ResponseEntity<Page<ReviewCreateDto>> getAllReviewsByCityIdAndHotelId(Pageable pageable,
+			@RequestParam(name = "cityId") Long cityId,@RequestParam(name = "hotelId") Long hotelId){
+		return new ResponseEntity<>(reviewService.findAllReviewsByCityIdAndHotelId(pageable, cityId, hotelId), HttpStatus.OK);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Void> addReview(@RequestBody ReviewCreateDto reviewCreateDto){
 		reviewService.addReview(reviewCreateDto);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
+	@PutMapping("/{id}")
 	public ResponseEntity<Void> updateReview(@PathVariable("id") Long id, @RequestBody Review review){
 		reviewService.updateReview(id, review);
 		return new ResponseEntity<>(HttpStatus.OK);
